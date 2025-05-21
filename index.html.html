@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>给妈妈的生日祝福</title>
+    <meta charset="utf-8">
+    <style>
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif; 
+            background: #fff5f9; 
+            color: #5a3d2b;
+            overflow-x: hidden;
+        }
+        .page { 
+            width: 100%; 
+            height: 100vh; 
+            text-align: center; 
+            position: relative; 
+            overflow: hidden;
+            padding-top: 5vh;
+            box-sizing: border-box;
+        }
+        h1 { 
+            color: #e75480; 
+            font-size: 2.2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 10;
+        }
+        .photo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin: 10px auto;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+        }
+        img { 
+            width: 60%;
+            max-height: 50vh;
+            border-radius: 15px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            object-fit: contain;
+            border: 3px solid white;
+            background: #fff;
+        }
+        button { 
+            background: linear-gradient(to right, #ff8a9f, #e75480);
+            color: white; 
+            border: none; 
+            padding: 12px 25px; 
+            border-radius: 25px; 
+            font-size: 18px; 
+            margin-top: 15px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(231, 84, 128, 0.3);
+            z-index: 10;
+            position: relative;
+        }
+        /* 大簇玫瑰样式 */
+        .rose-cluster {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 1;
+            opacity: 0.7;
+            animation: float 8s infinite ease-in-out;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23e75480" d="M50,20 C60,10 80,15 80,30 C80,45 60,50 50,60 C40,50 20,45 20,30 C20,15 40,10 50,20 Z"/><path fill="%23ff8a9f" d="M50,25 C58,18 72,22 72,32 C72,42 58,46 50,53 C42,46 28,42 28,32 C28,22 42,18 50,25 Z"/><circle cx="50" cy="30" r="5" fill="%23fff"/></svg>');
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+        .heart { 
+            position: absolute; 
+            font-size: 24px; 
+            color: #ff6b8b; 
+            animation: fly 3s linear forwards; 
+            z-index: 10;
+        }
+        .letter {
+            width: 85%;
+            margin: 0 auto;
+            text-align: left;
+            line-height: 1.8;
+            font-size: 1.1em;
+            background: rgba(255,255,255,0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 10;
+        }
+        .highlight {
+            color: #e75480;
+            font-weight: bold;
+        }
+        @keyframes fly {
+            to { transform: translateY(-150px) rotate(360deg); opacity: 0; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- 第1页：封面 -->
+    <div class="page" id="page1">
+        <h1 class="fade-in">我最亲爱的妈妈</h1>
+        <p class="fade-in" style="animation-delay: 0.3s;">生日快乐！</p>
+        <button onclick="nextPage()" class="fade-in" style="animation-delay: 0.6s;">点击开启祝福</button>
+        <!-- 玫瑰装饰 -->
+        <div class="rose-cluster" style="width: 180px; height: 180px; top: -30px; left: -30px;"></div>
+        <div class="rose-cluster" style="width: 120px; height: 120px; bottom: 10px; right: 10px; animation-delay: 2s;"></div>
+    </div>
+
+    <!-- 第2页：照片展示 -->
+    <div class="page" id="page2" style="display: none;">
+        <h1 class="fade-in">时光记忆</h1>
+        <div class="photo-container fade-in" style="animation-delay: 0.3s;">
+            <img src="https://i.ibb.co/vvKP14wL/1.jpg" alt="妈妈的照片1">
+        </div>
+        <button onclick="nextPage()" class="fade-in" style="animation-delay: 0.6s;">继续阅读</button>
+        <!-- 玫瑰装饰 -->
+        <div class="rose-cluster" style="width: 160px; height: 160px; top: 10%; right: -40px; animation-delay: 1s;"></div>
+        <div class="rose-cluster" style="width: 140px; height: 140px; bottom: 5%; left: -30px; animation-delay: 3s;"></div>
+    </div>
+
+    <!-- 第3页：祝福信 -->
+    <div class="page" id="page3" style="display: none;">
+        <div class="letter fade-in">
+            <p>真好，能在你身边给你庆祝你的生日。</p>
+            <p>开始读书之后常年在外，跟你一起庆祝过的生日少之又少。<span class="highlight">希望以后的每一年都能在你身边</span>，陪伴你，给你支持。</p>
+            <p>这一生前半段一直在为了我，为了事业，为了家庭而奋斗而牺牲。<span class="highlight">希望你的人生从退休开始能展开新的篇章</span>，不再为了我，不再为了家庭，而是为了自己，幸福健康地生活，开心快乐地享受！</p>
+            <p style="text-align: right; margin-top: 30px;">—— <span class="highlight">永远爱您的孩子</span></p>
+        </div>
+        <button onclick="nextPage()" class="fade-in" style="animation-delay: 0.6s;">下一页</button>
+        <!-- 玫瑰装饰 -->
+        <div class="rose-cluster" style="width: 150px; height: 150px; top: -20px; right: -20px;"></div>
+        <div class="rose-cluster" style="width: 130px; height: 130px; bottom: -10px; left: -30px; animation-delay: 2s;"></div>
+    </div>
+
+    <!-- 第4页：结尾 -->
+    <div class="page" id="page4" style="display: none;">
+        <h1 class="fade-in">我爱你，妈妈！</h1>
+        <p class="fade-in" style="animation-delay: 0.3s;">在这个世界上我生命中最重要的人</p>
+        <p class="fade-in" style="animation-delay: 0.6s;">愿你永远永远健康平安、笑容灿烂！</p>
+        <button onclick="createHearts()" class="fade-in" style="animation-delay: 0.9s;">撒爱心</button>
+        <!-- 玫瑰装饰 -->
+        <div class="rose-cluster" style="width: 200px; height: 200px; top: -40px; left: -40px;"></div>
+        <div class="rose-cluster" style="width: 170px; height: 170px; bottom: -30px; right: -30px; animation-delay: 2s;"></div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 4;
+
+        // 翻页功能
+        function nextPage() {
+            document.getElementById(`page${currentPage}`).style.display = "none";
+            currentPage = currentPage >= totalPages ? 1 : currentPage + 1;
+            document.getElementById(`page${currentPage}`).style.display = "block";
+        }
+        
+        // 撒爱心效果
+        function createHearts() {
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.classList.add("heart");
+                heart.style.left = Math.random() * 80 + 10 + "%";
+                heart.style.animationDelay = Math.random() * 0.5 + "s";
+                document.getElementById("page4").appendChild(heart);
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+
+        // 创建更多玫瑰装饰
+        function createRoses() {
+            const positions = [
+                { top: "10%", left: "5%" },
+                { top: "20%", right: "5%" },
+                { bottom: "15%", left: "10%" },
+                { bottom: "25%", right: "15%" }
+            ];
+            
+            positions.forEach((pos, i) => {
+                const rose = document.createElement("div");
+                rose.className = "rose-cluster";
+                rose.style.width = `${120 + Math.random() * 60}px`;
+                rose.style.height = rose.style.width;
+                Object.keys(pos).forEach(key => {
+                    rose.style[key] = pos[key];
+                });
+                rose.style.animationDelay = `${i * 1.5}s`;
+                document.getElementById("page1").appendChild(rose.cloneNode());
+                document.getElementById("page2").appendChild(rose.cloneNode());
+                document.getElementById("page3").appendChild(rose.cloneNode());
+                document.getElementById("page4").appendChild(rose);
+            });
+        }
+
+        window.onload = createRoses;
+    </script>
+</body>
+</html>
